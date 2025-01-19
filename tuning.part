@@ -1,0 +1,38 @@
+giPitch [] init 7
+
+iNote init 0
+
+giPitch [ iNote ] init 0
+iNote += 1
+
+giPitch [ iNote ] init 2.25
+iNote += 1
+
+giPitch [ iNote ] init 3
+iNote += 1
+
+giPitch [ iNote ] init 5
+iNote += 1
+
+giPitch [ iNote ] init 7.25
+iNote += 1
+
+giPitch [ iNote ] init 8
+iNote += 1
+
+giPitch [ iNote ] init 11.25
+iNote += 1
+
+opcode shtuning, i, 0
+
+iNote init p5
+
+iOctave init 12 + int ( iNote ) * 12
+
+iPitch init giPitch [ frac ( iNote ) * 10 ]
+
+iFrequency init cpsmidinn ( iOctave + iPitch )
+
+xout iFrequency
+
+endop

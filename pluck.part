@@ -1,0 +1,15 @@
+instr pluck
+
+aFrequency shshift 
+, 1/2, p3
+
+aNote pinker
+
+aNote butterlp aNote, aFrequency * cent ( iDepth )
+aNote butterhp aNote, aFrequency * cent ( -iDepth )
+
+aNote /= iDistance
+
+mix aNote
+
+endin

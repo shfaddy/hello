@@ -1,0 +1,17 @@
+instr output
+
+iDistance init p4 + 1
+
+aNote chnget "output"
+
+aNote clip aNote, 1, 1
+
+aNote /= iDistance
+
+out aNote
+
+chnclear "output"
+
+print p3
+
+endin

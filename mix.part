@@ -1,0 +1,32 @@
+opcode shmix, 0, aS
+
+aNote, STrack xin
+
+;STrack strget p ( 4 )
+
+chnmix aNote, STrack
+
+endop
+
+instr mix
+
+iFraction random .1, .9
+p1 += iFraction
+
+STrack strget p4
+
+iDistance init p5 + 1
+
+aNote chnget STrack
+
+aNote clip aNote, 1, 1
+
+aNote /= iDistance
+
+chnmix aNote, "output"
+
+chnclear STrack
+
+print p3
+
+endin

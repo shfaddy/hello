@@ -1,0 +1,16 @@
+instr speak
+
+$instance
+
+iIndex init 4
+
+SSpeech strget p ( iIndex )
+iIndex += 1
+
+SPath sprintf "%s.wav", SSpeech
+
+aSpeech diskin2 SPath
+
+out aSpeech
+
+endin

@@ -1,0 +1,59 @@
+instr tubluh
+
+STrack strget p4
+
+iFrequency shtuning; iNote
+
+iDistance init p6 + 1
+
+iAttack shget "attack"
+iAttack *= p3
+
+iDecay shget "decay"
+iDecay *= p3
+
+iSustain chnget "sustain"
+
+iRelease init p3 - iAttack - iDecay
+
+aAmplitude adsr iAttack, iDecay, iSustain, iRelease
+aAmplitude /= ( iDistance )
+
+iSweep shget "sweep"
+iShift shget "shift"
+
+aFrequency linseg iFrequency * iSweep, iAttack * iShift, iFrequency
+
+aNote poscil aAmplitude, aFrequency
+
+shmix aNote, STrack
+
+aSnatch noise 1, -0
+
+aSnatch butterlp aSnatch, aFrequency*2
+
+aAmplitude adsr iAttack / 2, iDecay / 2, 0, 0
+
+aSnatch *= aAmplitude/iDistance
+
+shmix aSnatch, STrack
+
+endin
+
+chnset 1/16, "dom/attack"
+chnset 1/4, "dom/decay"
+chnset 1/8, "dom/sustain"
+chnset 2^8, "dom/sweep"
+chnset 1/512, "dom/shift"
+
+chnset 1/16, "tak/attack"
+chnset 1/4, "tak/decay"
+chnset 1/4, "tak/sustain"
+chnset 2^8, "tak/sweep"
+chnset 1/512, "tak/shift"
+
+chnset 1/256, "suggat/attack"
+chnset 1/2, "suggat/decay"
+chnset 1/4, "suggat/sustain"
+chnset 2^4, "suggat/sweep"
+chnset 1, "suggat/shift"

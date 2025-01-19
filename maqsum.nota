@@ -1,0 +1,23 @@
+#define maqsum #
+
+$tak(2/16'$F)
+
+$sak( 4/16 ' $G )
+
+$tak( 6/16 ' $F )
+
+$sak( 10/16 ' $E )
+
+$tak(12/16'$E)
+
+$sak( 14/16 ' $E )
+
+{ 4 step
+
+$suggat( ( $step * 2 ) / 8 ' $C ' 5 )
+$suggat( ( .5 + ( $step * 2 ) ) / 8 ' $E ' 7 )
+$suggat( ( 1.5 + ( $step * 2 ) ) / 8 ' $E ' 8 )
+
+}
+
+#

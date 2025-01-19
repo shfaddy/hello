@@ -1,0 +1,13 @@
+opcode shget, i, S
+
+SParameter xin
+
+STrack strget p4
+
+SIndex sprintf "%s/%s", STrack, SParameter
+
+iValue chnget SIndex
+
+xout iValue
+
+endop

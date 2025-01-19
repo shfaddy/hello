@@ -8,6 +8,8 @@ $mix "dom" 0
 $mix "tak" 2
 $mix "sak" 3
 
-$mix "suggat" 8
+$mix "suggat1" 8
+$mix "suggat2" 16
+$mix "suggat3" 32
 
 #

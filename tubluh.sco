@@ -45,14 +45,14 @@ $tubluh \
 
 #
 
-#define suggat(step'note'rhythm) #
+#define suggat(track'step'note'rhythm) #
 
 { 4 distance
 
 $tubluh \
 [ ( $step ) + ( $distance * ( 1 / 2 ^ ( $rhythm + 2 ) ) ) ] \
 [ 1 / 2^( $rhythm + $distance ) ] \
-"suggat" \
+$track \
 [ ( 8 + $distance ) + $note / 10 ] \
 [ $distance * 4 ]
 

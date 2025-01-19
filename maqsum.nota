@@ -14,9 +14,9 @@ $sak( 14/16 ' $E )
 
 { 4 step
 
-$suggat( ( $step * 2 ) / 8 ' $C ' 5 )
-$suggat( ( .5 + ( $step * 2 ) ) / 8 ' $E ' 7 )
-$suggat( ( 1.5 + ( $step * 2 ) ) / 8 ' $E ' 8 )
+$suggat( "suggat1" ' ( $step * 2 ) / 8 ' $C ' 5 )
+$suggat( "suggat2" ' ( .5 + ( $step * 2 ) ) / 8 ' $E ' 7 )
+$suggat( "suggat3" ' ( 1.5 + ( $step * 2 ) ) / 8 ' $E ' 8 )
 
 }
 

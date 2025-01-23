@@ -1,51 +1,43 @@
 instr tubluh
 
-STrack strget p4
+iFraction random .1, .9
+p1 += iFraction
 
-iFrequency shtuning; iNote
+print p1
+
+iFrequency init cpsmidinn ( p5 )
 
 iDistance init p6 + 1
 
-iAttack shget "attack"
-iAttack *= p3
-
-iDecay shget "decay"
-iDecay *= p3
-
-iSustain chnget "sustain"
-
+iAttack init p7 * p3
+iDecay init p8 * p3
+iSustain init p9
 iRelease init p3 - iAttack - iDecay
 
-aAmplitude adsr iAttack, iDecay, iSustain, iRelease
-aAmplitude /= ( iDistance )
+aAmplitude linseg 0, iAttack, 1 / iDistance, iDecay, iSustain / iDistance, iRelease, 0
 
-iSweep shget "sweep"
-iShift shget "shift"
+iSweep init p10
+iShift init p11
 
 aFrequency linseg iFrequency * iSweep, iAttack * iShift, iFrequency
 
 aNote poscil aAmplitude, aFrequency
 
-shmix aNote, STrack
+shmix aNote
 
 aSnatch noise 1, -0
 
 aSnatch butterlp aSnatch, aFrequency*2
 
-aAmplitude adsr iAttack / 2, iDecay / 2, 0, 0
+aAmplitude linseg 0, iAttack / 8, 1, iDecay, 0
 
 aSnatch *= aAmplitude/iDistance
 
-shmix aSnatch, STrack
+shmix aSnatch/8
 
 endin
 
-chnset 1/16, "dom/attack"
-chnset 1/4, "dom/decay"
-chnset 1/8, "dom/sustain"
-chnset 2^8, "dom/sweep"
-chnset 1/512, "dom/shift"
-
+/*
 chnset 1/16, "tak/attack"
 chnset 1/4, "tak/decay"
 chnset 1/4, "tak/sustain"
@@ -75,3 +67,4 @@ chnset 1, SShift
 iIndex += 1
 
 od
+*/

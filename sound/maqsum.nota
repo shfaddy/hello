@@ -12,6 +12,11 @@ $tak(12/16'$E)
 
 $sak( 14/16 ' $E )
 
+#
+
+
+#define maqsumSuggat #
+
 { 4 step
 
 $suggat( "suggat1" ' ( $step * 2 ) / 8 ' $C ' 5 )

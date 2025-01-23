@@ -1,0 +1,28 @@
+instr sine
+
+iFraction random .1, .9
+p1 += iFraction
+
+iFrequency init cpsmidinn ( p5 )
+
+iDistance init p6
+
+iAttack init p7 * p3
+iDecay init p8 * p3
+iSustain init p9
+iRelease init p3 - iAttack - iDecay
+
+aAmplitude linseg 0, iAttack, 1 * iDistance, iDecay, iSustain * iDistance, iRelease, 0
+
+iSweep init p10
+iShift init p11 * p3
+
+aFrequency linseg iFrequency * iSweep, iShift, iFrequency
+
+aNote poscil aAmplitude, aFrequency
+
+shmix aNote
+
+print p1
+
+endin
